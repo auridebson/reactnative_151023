@@ -4,7 +4,7 @@ import { View, Text } from 'react-native';
 export default function Welcome() {
     return (
         <View>
-            <Text>Bem vinda a página de Boas Vindas!</Text>
+            <Text>Página de Boas Vindas!</Text>
         </View>
     )
 }

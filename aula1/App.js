@@ -13,6 +13,7 @@ export default function App() {
       <Text>Hello Again!!!</Text>
       <StatusBar style={styles.statusBarContainer} />
       <Welcome />
+      <Routes />
 
     </View>
   );
@@ -23,7 +24,9 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#ddd',
     alingItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    margin: 5,
+    padding: 20
   },
   statusBarContainer: {
     backgroundColor: '#000',
