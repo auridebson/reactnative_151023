@@ -21,6 +21,10 @@ export default function Welcome() {
             <View style={styles.containerForm}>
                 <Text style={styles.title}>Constrole suas atividades e treinos em qualquer lugar</Text>
                 <Text style={styles.text}>Faça o login para começar</Text>
+
+                <TouchableOpacity style={styles.buttonText}>
+                    <Text>Acessar</Text>
+                </TouchableOpacity>
             </View>
 
         </View>
