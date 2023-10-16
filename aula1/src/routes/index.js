@@ -1,13 +1,13 @@
-import { createNativeStackNavigator } from '@react-navigation/stack';
-// import { StyleSheet, Text, View } from 'react-native';
-import { Welcome } from '../pages/Welcome'
-import { Signin } from '../pages/Signin'
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-const Stack =  createNativeStackNavigator;
+import  Welcome  from '../pages/Welcome'
+import  Signin  from '../pages/Signin'
+
+const Stack = createNativeStackNavigator();
 
 export default function Routes() {
     return (
-        <>
+        <Stack.Navigator>
             <Stack.Screen
                 name="Welcome"
                 component={Welcome}
@@ -16,6 +16,6 @@ export default function Routes() {
                 name="Signin"
                 component={Signin}
             />
-        </>
+        </Stack.Navigator>
     )
 }
