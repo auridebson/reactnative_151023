@@ -12,8 +12,8 @@ export default function Welcome() {
         <View style={styles.container}>
             <View style={styles.containerLogo}>
             <Image
-                source={require('../../assets/images/img_kravmaga.jpg')}
-                style={{width:'100%'}}
+                source={require('../../assets/images/img_kravmaga.png')}
+                style={styles.containerImg}
                 resizeMode="contain"
             />
             </View>
@@ -43,6 +43,25 @@ const styles = StyleSheet.create({
         alignItems:'center'
     },
     containerForm:{
-        flex:1
+        flex:1,
+        backgroundColor:'#fff',
+        borderTopLeftRadius: 35,
+        borderTopRightRadius: 35,
+
+        paddingStart: '5%',
+        paddingEnd: '5%'
+    },
+    title:{
+        fontSize: 24,
+        fontWeight: 'bold',
+        marginTop: 28,
+        marginBottom: 12
+    },
+    containerImg:{
+        width: '90%',
+        borderTopLeftRadius: 150,
+        borderTopRightRadius: 10,
+        borderBottomRightRadius: 150,
+        borderBottomLeftRadius: 10
     }
 })
