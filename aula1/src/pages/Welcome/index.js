@@ -19,7 +19,7 @@ export default function Welcome() {
             </View>
 
             <View style={styles.containerForm}>
-                <Text style={styles.title}>Constrole suas atividades e treinos em qualquer lugar</Text>
+                <Text style={styles.title}>Controle suas atividades e treinos de qualquer lugar</Text>
                 <Text style={styles.text}>Faça o login para começar</Text>
 
                 <TouchableOpacity style={styles.button}>
@@ -63,5 +63,24 @@ const styles = StyleSheet.create({
         borderTopRightRadius: 10,
         borderBottomRightRadius: 150,
         borderBottomLeftRadius: 10
+    },
+    text:{
+        color:'#a1a1a1'
+    },
+    button:{
+        position: 'absolute',
+        backgroundColor: '#38a69d',
+        borderRadius: 50,
+        paddingVertical: 8,
+        width: '60%',
+        alignSelf: 'center',
+        bottom: '15%',
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    buttonText:{
+        fontSize: 18,
+        color: '#fff',
+        fontWeight: 'bold'
     }
 })
