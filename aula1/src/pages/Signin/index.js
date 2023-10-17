@@ -2,7 +2,10 @@ import React from "react";
 import { View, Text, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
 import * as Animatable from 'react-native-animatable'
 
+import { useNavigation } from "@react-navigation/native";
+
 export default function Signin() {
+    const navigation = useNavigation()
     return (
         <View style={styles.container}>
             <Animatable.View animation="fadeInLeft" delay={600} style={styles.containerHeader}>
@@ -22,7 +25,9 @@ export default function Signin() {
                     style={styles.input} 
                 />
 
-                <TouchableOpacity style={styles.button}>
+                <TouchableOpacity
+                onPress={() => navigation.navigate('Cadastro')}
+                style={styles.button}>
                     <Text style={styles.buttonText}>Acessar</Text>
                 </TouchableOpacity>
 
