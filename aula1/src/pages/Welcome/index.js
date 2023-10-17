@@ -22,8 +22,8 @@ export default function Welcome() {
                 <Text style={styles.title}>Constrole suas atividades e treinos em qualquer lugar</Text>
                 <Text style={styles.text}>Faça o login para começar</Text>
 
-                <TouchableOpacity style={styles.buttonText}>
-                    <Text>Acessar</Text>
+                <TouchableOpacity style={styles.button}>
+                    <Text style={styles.buttonText}>Acessar</Text>
                 </TouchableOpacity>
             </View>
 
@@ -33,6 +33,16 @@ export default function Welcome() {
 
 const styles = StyleSheet.create({
     container:{
-
+        flex:1,
+        backgroundColor: '#38a69d'
+    },
+    containerLogo:{
+        flex:2,
+        backgroundColor: '#38a69d',
+        justifyContent: 'center',
+        alignItems:'center'
+    },
+    containerForm:{
+        flex:1
     }
 })
