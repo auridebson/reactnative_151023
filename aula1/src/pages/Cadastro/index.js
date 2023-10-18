@@ -17,9 +17,13 @@ export default function Cadastro() {
                     value={cep}
                     onChangeText={(texto) => setCep(texto)}
                     style={{
-                        borderColor:'#000'
+                        borderColor:'#000', borderWidth:2, width: 200, fontSize: 18, marginTop: 20, marginEnd:20, borderRadius: 10
                     }}
                 />
+
+                <TouchableOpacity style={Styles.searchButton}>
+                    <Text style={Styles.textButton}>Buscar</Text>
+                </TouchableOpacity>
 
             </View>
             
@@ -49,5 +53,20 @@ const Styles = StyleSheet.create({
         flexDirection: 'row',
         height: 100,
         marginHorizontal: 10
+    },
+    searchButton:{
+        backgroundColor: '#38a69d',
+        width: 120,
+        height: 70,
+        marginTop: 30,
+        marginEnd: 20,
+        borderRadius: 10,
+        padding: 20
+    },
+    textButton:{
+        color: '#fff',
+        fontSize: 18,
+        fontWeight: 'bold',
+        alignSelf: 'center'
     }
 })
