@@ -1,6 +1,8 @@
 import React, {useState} from "react";
-import { View, Text, TextInput, StyleSheet, TouchableOpacity, Button } from 'react-native';
+import { View, Text, TextInput, StyleSheet, TouchableOpacity, Button, Alert } from 'react-native';
 import * as Animatable from 'react-native-animatable'
+
+import api from '../../services/api'
 
 export default function Cadastro() {
     const [cep, setCep] = useState("")
@@ -8,6 +10,24 @@ export default function Cadastro() {
     const [bairro, setBairro] = useState("")
     const [localidade, setLocalidade] = useState("")
     const [uf, setUf] = useState("")
+
+    async function buscarCep() {
+        if(cep == "") {
+            Alert.alert("Cep inválido")
+            setCep("")
+        }
+
+        try{
+            const response = await api.get(`/${cep}/json`)
+            setLogradouro(response.data.logradouro)
+            setBairro(response.data.bairro)
+            setLocalidade(response.data.localidade)
+            setUf(response.data.uf)
+
+        }catch(error) {
+            console.log("ERRO" + error)
+        }
+    }
 
     return (
         <View style={Styles.containerMain}>
@@ -22,16 +42,17 @@ export default function Cadastro() {
                     value={cep}
                     onChangeText={(texto) => setCep(texto)}
                     style={{
-                        borderColor:'#000', 
+                        borderColor:'#ccc', 
                         borderWidth:2, 
-                        width: 200, 
+                        width: 200,
+                        padding: 15,
                         fontSize: 18,
                         marginTop: 30, 
                         marginEnd:20, 
                         borderRadius: 10
                     }}
                 />
-                <TouchableOpacity style={Styles.searchButton}>
+                <TouchableOpacity style={Styles.searchButton} onPress={buscarCep}>
                     <Text style={Styles.textButton}>Buscar</Text> 
                 </TouchableOpacity>
 
@@ -102,9 +123,9 @@ const Styles = StyleSheet.create({
         alignSelf: 'center'
     },
     containerFields:{
-        borderColor: '#000',
+        borderColor: '#ccc',
         borderWidth: 2,
-        width: 300,
+        width: 340,
         fontSize: 18,
         marginTop: 10,
         padding: 15,
@@ -113,7 +134,7 @@ const Styles = StyleSheet.create({
         borderRadius: 10
     },
     containerUf:{
-        borderColor: '#000',
+        borderColor: '#ccc',
         borderWidth: 2,
         width: 90,
         fontSize: 18,
