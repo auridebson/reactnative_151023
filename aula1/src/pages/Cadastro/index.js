@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import { View, Text, TextInput, StyleSheet, TouchableOpacity, Button, Alert } from 'react-native';
 import * as Animatable from 'react-native-animatable'
 
-import api from '../../services/api'
+import Api from '../../services/api'
 
 export default function Cadastro() {
     const [cep, setCep] = useState("")
@@ -18,7 +18,7 @@ export default function Cadastro() {
         }
 
         try{
-            const response = await api.get(`/${cep}/json`)
+            const response = await Api.get(`/${cep}/json`)
             setLogradouro(response.data.logradouro)
             setBairro(response.data.bairro)
             setLocalidade(response.data.localidade)
