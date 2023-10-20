@@ -5,6 +5,12 @@ npm install react-native-animatable --save
 --instalar o Axios
 npm install axios
 
+--instalar Firebase
+ npx expo install firebase
+
+ --Gerar o metro.config.js depois de configurar o firebase API
+ npx expo customize metro.config.js
+
 
 API de CEP
 https://viacep.com.br/

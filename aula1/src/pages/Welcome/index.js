@@ -7,9 +7,12 @@ import {
     TouchableOpacity
 } from 'react-native';
 
+// DefaultConfig
+
 import * as Animatable from 'react-native-animatable'
 
 import { useNavigation } from "@react-navigation/native";
+import { getDefaultConfig } from "expo/metro-config";
 
 export default function Welcome() {
     const navigation = useNavigation()

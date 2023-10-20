@@ -1,8 +1,48 @@
-import React from "react";
-import { View, Text, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
+import React, { useState } from "react";
+import { View, Text, TextInput, StyleSheet, TouchableOpacity, ActivityIndicator, Button } from 'react-native';
 import * as Animatable from 'react-native-animatable'
+import { FIREBASE_AUTH } from "../../services/firebaseConfig";
 
 import { useNavigation } from "@react-navigation/native";
+import { signInWithEmailAndPassword } from "firebase/auth";
+
+
+const Login = () => {
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const [loading, setLoading] = useState(false)
+    const auth = FIREBASE_AUTH
+}
+
+// Função de login
+const signIn = async () => {
+    setLoading(true)
+    try {
+        const response = await signInWithEmailAndPassword (auth, email, password)
+        console.log(response)
+        alert("Verifique seu e-mail!")
+    } catch(error) {
+        console.log(error)
+        alert("Falha no registro: " + error.message)
+    } finally {
+        setLoading(false)
+    }
+}
+
+// Função de logout
+const signUp = async () => {
+    setLoading(true)
+    try {
+        const response = await createUserWithEmailAndPassword(auth, email, password)
+        console.log(response)
+        alert("Verifique seu e-mail!")
+    } catch (error) {
+        console.log(error)
+        alert("Falha no registro: " + error.message)
+    } finally {
+        setLoading(false)
+    }
+}
 
 export default function Signin() {
     const navigation = useNavigation()
@@ -17,16 +57,29 @@ export default function Signin() {
                 <TextInput 
                     placeholder="Digite um e-mail..." 
                     style={styles.input} 
+                    value={email}
+                    autoCapitalize="none"
+                    onChangeText={(text) = setEmail(text)}
                 />
 
                 <Text style={styles.title}>Senha</Text>
                 <TextInput 
                     placeholder="Sua senha" 
-                    style={styles.input} 
+                    style={styles.input}
+                    value={password}
+                    autoCapitalize="none"
+                    onChangeText={(text) => setPassword(text)}
+                    secureTextEntry={true}
                 />
 
+                {loading ? (
+                    <ActivityIndicator size="large" color="#0000ff" />
+                ) : (
+                    <Button title="Login" onPress={() => signIn()} />
+                )}
+
                 <TouchableOpacity
-                onPress={() => navigation.navigate('Cadastro')}
+                onPress={() => Signin()}
                 style={styles.button}>
                     <Text style={styles.buttonText}>Acessar</Text>
                 </TouchableOpacity>
