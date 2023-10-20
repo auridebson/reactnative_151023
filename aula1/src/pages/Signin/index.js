@@ -3,6 +3,49 @@ import { View, Text, TextInput, StyleSheet, TouchableOpacity } from 'react-nativ
 import * as Animatable from 'react-native-animatable'
 
 import { useNavigation } from "@react-navigation/native";
+<<<<<<< Updated upstream
+=======
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { defaultConfig } from "expo/metro-config";
+
+
+const Login = () => {
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const [loading, setLoading] = useState(false)
+    const auth = FIREBASE_AUTH
+}
+
+// Função de login
+const signIn = async () => {
+    setLoading(true)
+    try {
+        const response = await signInWithEmailAndPassword (auth, email, password)
+        console.log(response)
+        alert("Verifique seu e-mail!")
+    } catch(error) {
+        console.log(error)
+        alert("Falha no registro: " + error.message)
+    } finally {
+        setLoading(false)
+    }
+}
+
+// Função de logout
+const signUp = async () => {
+    setLoading(true)
+    try {
+        const response = await createUserWithEmailAndPassword(auth, email, password)
+        console.log(response)
+        alert("Verifique seu e-mail!")
+    } catch (error) {
+        console.log(error)
+        alert("Falha no registro: " + error.message)
+    } finally {
+        setLoading(false)
+    }
+}
+>>>>>>> Stashed changes
 
 export default function Signin() {
     const navigation = useNavigation()
