@@ -21,9 +21,7 @@ export default function Cadastro() {
                     }}
                 />
 
-            </View>
-            
-            
+            </View>            
         </View>
     )
 }
